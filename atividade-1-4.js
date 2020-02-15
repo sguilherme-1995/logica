@@ -1,7 +1,7 @@
 var user = require('readline-sync');
 
 var macavarejo, macaatacado;
-var macacomprada = user.question("Quantas macas você deseja comprar? ");
+var macacomprada = user.question("Quantas macas voce deseja comprar? ");
 macavarejo = 0.30;
 macaatacado = 0.25;
 
