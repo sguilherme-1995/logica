@@ -1,8 +1,8 @@
 var user = require('readline-sync');
 
-var nota1 = user.question("Qual a primeira nota? ");
-var nota2 = user.question("Qual a segunda nota? ");
-var nota3 = user.question("Qual a terceira nota? ");
+var nota1 = user.questionInt("Qual a primeira nota? ");
+var nota2 = user.questionInt("Qual a segunda nota? ");
+var nota3 = user.questionInt("Qual a terceira nota? ");
 
 var media = (((nota1+nota2)+nota3)/3);
 

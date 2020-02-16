@@ -2,7 +2,7 @@
 
 var user = require('readline-sync');
 
-var produto = user.question("Qual o valor do produto? ");
+var produto = user.questionInt("Qual o valor do produto? ");
 var formpaga = user.question("Qual a forma de pagamento?  1-A vista cheque ou dinheiro | 2-A vista cartao de credito | 3-Em 2 vezes | 4-Em 3 vezes  ");
 var val1 = produto - (produto/100)*10;
 var val2 = produto - (produto/100)*15;
