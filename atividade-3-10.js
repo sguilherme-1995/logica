@@ -1,11 +1,11 @@
 var user = require('readline-sync');
 
 var num = user.question("Qual o numero? ");
-
-while(num > 0){
-    if(num % num == 0){
-        console.log(num)
+var divi = 0;
+while(divi >= 0){
+    if(num % divi == 0){
+        console.log(divi)
     }
 
-    num = num -1;
+    divi = divi +1;
 }
