@@ -1,11 +1,12 @@
 var user = require('readline-sync');
 var num = user.questionInt("Qual o numero?  ");
 var maior = 0;
-var menor = 1;
+var menor = num;
+
 while(num != -1){
     var num = user.questionInt("Qual o proximo numero?  ");
         if(num < menor && num != -1){
-            menor = 1;
+            menor = 0;
             menor = menor + num;
         }
         if(num > maior && num != -1){
