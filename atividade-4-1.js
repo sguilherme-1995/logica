@@ -1,36 +1,33 @@
-var div = 50;
-var num = 1;
-while(num <= 50){
-    if(num % 2 == 0){
-        if(num % div == 0){
-            if(num == 2){
-                console.log(num+" - Numero Par Primo");
-                num++;
-                div--;
-            }
-               
-            }else{
-                console.log(num+" - Numero Par");
-                num++;
-                div--;
-        }
+var numero1 = 1;
+var numero2 = 50;
+var n = numero1;
+var m = 2;
+var contador = 0
+var primo = 'e Primo'
+
+while(n<numero2){
+    var par_impar = ''
+    if(n%2==0){
+        par_impar = "Par"
+    }
+    else{
+        par_impar = "Ímpar"
+    }
     
-    }else{
-      
-        if(num % div == 0 || num % div == num){
-            console.log(num+" - Numero Impar Primo");
-            num++;
-            div--;
-        
-          
-        }else{
-            console.log(num+" - Numero Impar");
-            num++;
-            div--;
-    
+    m = 2
+    contador = 0
+    primo = 'e Primo'
+    while(m<n){
+        if(n%m==0){
+            contador++
         }
+        if(contador>0){
+            primo = ''
+        }
+        m++
+    }
+
+    console.log("O numero "+n+' e '+par_impar+' '+primo)
+    n++
+
 }
-num++;
-div--;
-}
-// TUDO BUGADO
