@@ -10,6 +10,7 @@ while(true){
     }
     var idade = user.questionInt("Qual a idade? ");
     numpes++;
+    console.log(nome+", "+idade+" anos");
     
 }
 console.log("O numero total de pessoas e: " + numpes);
