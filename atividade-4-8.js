@@ -27,27 +27,30 @@ while(game == true){
     if(esco2 == "a" || esco2 == "b" || esco2 == "c"){
         if(esco2 == "a"){
            mov2 = pedra;
+           if(mov1 == pedra && mov2 == teso){
+            console.log("Pedra vence a Tesoura! O "+usu1+" venceu a partida");
+        }else if(mov2 == pedra && mov1 == teso){
+            console.log("Pedra vence a Tesoura! O "+usu2+" venceu a partida");
+        }
         }else if(esco2 == "b"){
             mov2 = papel;
+            if(mov1 == pedra && mov2 == papel){
+                console.log("Papel vence Pedra! O "+usu1+" venceu a partida");
+            }else if(mov2 == pedra && mov1 == papel){
+                console.log("Papel vence Pedra! O "+usu2+" venceu a partida");
+            }
         }else if(esco2 == "c"){
            mov2 = teso;
+           if(mov1 == teso && mov2 == papel){
+            console.log("Tesoura vence Papel! O "+usu1+" venceu a partida");
+        }else if(mov2 == teso && mov1 == papel){
+            console.log("Tesoura vence Papel! O "+usu2+" venceu a partida");
+        }
         }
     }else{
         console.log("Opcao invalida! ");
     }
-    if(mov1 == pedra && mov2 == teso){
-        console.log("Pedra vence a Tesoura! O "+usu1+" venceu a partida");
-    }else if(mov2 == pedra && mov1 == teso){
-        console.log("Pedra vence a Tesoura! O "+usu2+" venceu a partida");
-    }else if(mov1 == pedra && mov2 == papel){
-        console.log("Papel vence Pedra! O "+usu1+" venceu a partida");
-    }else if(mov2 == pedra && mov1 == papel){
-        console.log("Papel vence Pedra! O "+usu2+" venceu a partida");
-    }else if(mov1 == teso && mov2 == papel){
-        console.log("Tesoura vence Papel! O "+usu1+" venceu a partida");
-    }else if(mov2 == teso && mov1 == papel){
-        console.log("Tesoura vence Papel! O "+usu2+" venceu a partida");
-    }
+
 }
 
 console.log("O jogo acabou!");
