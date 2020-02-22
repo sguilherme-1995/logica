@@ -35,19 +35,22 @@ while(play = true){
             
         n++
     }
-    if(respUsu != respCerta[n]){
-    console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n Deseja jogar novamente?");}
-    if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
-    var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
-        if(jogarDenovo == 2){
+        if(respUsu != respCerta[n]){
+        console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n Deseja jogar novamente?");}
+            if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
+            var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
+                if(jogarDenovo == 2){
 
-            play = false;
-            break;
-            
-        }
+                    play = false;
+                    break;
+                    
+                }
         n = 0
 }
 console.log("Jogo encerrado! \n Obrigado por jogar! ");
 
 
-
+//ainda falta:
+//sistema de pulo
+//array multidimensional para multiplas perguntas, alternativas e respostas
+//Math.round(Math.random()/100)*porcentagem para cada alternativa dentro do array multidimensional
