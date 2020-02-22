@@ -11,6 +11,6 @@ while(num > 0){
     }
     num--
 }
-console.log("A soma dos multiplos por 5 é: " + bd1);
-console.log("A soma dos multiplos por 3 é: " + bd2);
+console.log("A soma dos multiplos por 5 sao: " + bd1);
+console.log("A soma dos multiplos por 3 sao: " + bd2);
 

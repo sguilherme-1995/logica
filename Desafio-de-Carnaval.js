@@ -14,36 +14,54 @@ var play = true;
 var n = 0;
 
 
+
 while(play = true){
     console.log("Comeca agora o show do milhao! ");
-    while(n<=10){
+    while(n<10){
         console.log("Essa pergunta vale "+premio[n]+" reais");
         var respUsu = user.question("Pergunta: \n "+perguntas[n]+"\n"+alterna[n]);
             if(respUsu == respCerta[n]){
                 premioAcumu = premio[n]
                 console.log("Certa resposta! ");
-                var desistir = user.questionInt("Voce deseja desistir?\n 1 - Quero desistir!\n 2 - Quero continuar!\n ");
+            
+         var desistir = user.questionInt("Voce deseja desistir?\n 1 - Quero desistir!\n 2 - Quero continuar!\n ");
                     if(desistir == 1){
                         premioAcumu = premioAcumu/2;
                         play = false;
                         console.log("Voce esta saindo com "+premioAcumu+" reais");
                         break;
                     }
+                
             }else{
                 break
             }
             
         n++
+       
     }
+    if(n = 9 && respUsu == respCerta[n]){
+        console.log("--------------------  PARABENS  --------------------\n");
+        console.log("----------  VOCE GANHOU UM MILHAO DE REAIS  ----------\n");
+        play = false;
+    }
+        
         if(respUsu != respCerta[n]){
         console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n Deseja jogar novamente?");}
-            if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
-            var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
-                if(jogarDenovo == 2){
+            if(n = 9 && respUsu == respCerta[n]){var ganhou = user.questionInt("Voce tem certeza disso?\n1 - Sim\n2 - Nao\n");
+        }if(ganhou = 2){desistir == 1
+        } if(desistir == 1){
+            premioAcumu = premioAcumu/2;
+            play = false;
+            console.log("Voce esta saindo com "+premioAcumu+" reais");
+            break;
+        } 
+                if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
+                var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
+                    if(jogarDenovo == 2){
 
-                    play = false;
-                    break;
-                    
+                        play = false;
+                        break;
+                        
                 }
         n = 0
 }
@@ -54,3 +72,5 @@ console.log("Jogo encerrado! \n Obrigado por jogar! ");
 //sistema de pulo
 //array multidimensional para multiplas perguntas, alternativas e respostas
 //Math.round(Math.random()/100)*porcentagem para cada alternativa dentro do array multidimensional
+
+

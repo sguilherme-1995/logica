@@ -1,6 +1,6 @@
 var user = require('readline-sync');
 var num = user.questionInt("Qual o numero?  ");
-var maior = 0;
+var maior = num;
 var menor = num;
 
 while(num != -1){
