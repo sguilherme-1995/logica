@@ -18,53 +18,59 @@ var n = 0;
 while(play = true){
     console.log("Comeca agora o show do milhao! ");
     while(n<10){
+        
         console.log("Essa pergunta vale "+premio[n]+" reais");
         var respUsu = user.question("Pergunta: \n "+perguntas[n]+"\n"+alterna[n]);
+         if(respUsu != respCerta[n]){
+        console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n");
+             break;
+            }
             if(respUsu == respCerta[n]){
                 premioAcumu = premio[n]
-                console.log("Certa resposta! ");
-            
-         var desistir = user.questionInt("Voce deseja desistir?\n 1 - Quero desistir!\n 2 - Quero continuar!\n ");
+                console.log("Certa resposta! ");}
+                if(n < 9 && respUsu == respCerta[n]){
+                    var desistir = user.questionInt("Voce deseja desistir?\n 1 - Quero desistir!\n 2 - Quero continuar!\n ");
                     if(desistir == 1){
                         premioAcumu = premioAcumu/2;
                         play = false;
                         console.log("Voce esta saindo com "+premioAcumu+" reais");
                         break;
                     }
-                
-            }else{
-                break
+                }else{
+                    break
+                }
+                n++
             }
             
-        n++
-       
-    }
-    if(n = 9 && respUsu == respCerta[n]){
-        console.log("--------------------  PARABENS  --------------------\n");
-        console.log("----------  VOCE GANHOU UM MILHAO DE REAIS  ----------\n");
-        play = false;
-    }
-        
-        if(respUsu != respCerta[n]){
-        console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n Deseja jogar novamente?");}
-            if(n = 9 && respUsu == respCerta[n]){var ganhou = user.questionInt("Voce tem certeza disso?\n1 - Sim\n2 - Nao\n");
-        }if(ganhou = 2){desistir == 1
-        } if(desistir == 1){
-            premioAcumu = premioAcumu/2;
-            play = false;
-            console.log("Voce esta saindo com "+premioAcumu+" reais");
-            break;
-        } 
-                if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
-                var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
-                    if(jogarDenovo == 2){
+            if(n==9 && respUsu == respCerta[n]){
+                console.log("--------------------  PARABENS  --------------------\n");
+                console.log("----------  VOCE GANHOU UM MILHAO DE REAIS  ----------\n");
+                play = false;
+            }
 
-                        play = false;
-                        break;
-                        
-                }
+            var desistir = user.questionInt("Voce deseja jogar novamente?\n 1 - Quero desistir!\n 2 - Quero continuar!\n ");
+            if(desistir == 1){
+                play = false;
+                break;
+            }
+   
+        
+        // if(respUsu != respCerta[n]){
+        // console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n Deseja jogar novamente?");}
+        //    if(ganhou = 2){desistir == 1
+        // } if(desistir == 1){
+        //     play = false;
+            
+        
+        
+                // if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
+                // var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
+                //     if(jogarDenovo == 2){
+                //         play = false;
+                //         }
+                                  
         n = 0
-}
+                    }
 console.log("Jogo encerrado! \n Obrigado por jogar! ");
 
 

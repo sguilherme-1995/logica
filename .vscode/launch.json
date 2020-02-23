@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\atividade-5-5.js"
+            "console" : "externalTerminal",
+            "program": "${file}"
         }
     ]
 }
