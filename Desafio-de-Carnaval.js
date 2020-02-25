@@ -44,14 +44,15 @@ while(play = true){
         n2 = Math.floor(Math.random() * 10);
         console.log("Essa pergunta vale "+premio[n]+" reais");
         var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]+"\nP) Pulos: "+pulo+"\n");
-        if(pulo > 0 && respUsu == "p"){
+        while(pulo > 0 && respUsu == "p"){
             pulo--;
             console.log("Voce Pulou!");
             n2 = Math.floor(Math.random() * 10);
             console.log("Essa pergunta vale "+premio[n]+" reais");
-            var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]+" \n P) Pulos: "+pulo);
-        }else if(pulo <= 0 && respUsu == "p"){
+            var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]+" \n P) Pulos: "+pulo+"\n");
+        } if(pulo <= 0 && respUsu == "p"){
             console.log("Voce não tem mais pulos, responda a pergunta ou perca tudo!");
+            var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]+" \n Pulos: "+pulo+"\n");
         }
          if(respUsu != respCerta[n][n2]){
         console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n");
