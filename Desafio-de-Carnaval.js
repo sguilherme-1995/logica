@@ -35,7 +35,7 @@ var alterna = [['A) 50 \nB) 100 \nC) 1,000 \nD) 1,500 \n','A)Liquido \nB)Solido 
 var respCerta = [['b','b','b','d','d','c','c','b','b','b'],['a','c','c','b','d','b','d','a','c','c'],['d','c','b','d','b','b','a','a','b','d'],['c','b','b','a','c','b','b','a','c','d'],['b','d','b','c','d','b','a','c','a','a'],['b','c','c','c','c','a','c','c','d','b'],['b','d','c','b','c','d','c','c','a','a'],['c','b','d','d','c','a','d','a','b','a'],['c','d','d','d','d','b','d','c','b','a'],['b','a','a','d','d','c','a','c','c','b']];
 var play = true;
 var n = 0;
-
+var pulo = 3;
 
 
 while(play = true){
@@ -43,7 +43,16 @@ while(play = true){
     while(n<10){
         n2 = Math.floor(Math.random() * 10);
         console.log("Essa pergunta vale "+premio[n]+" reais");
-        var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]);
+        var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]+"\nP) Pulos: "+pulo+"\n");
+        if(pulo > 0 && respUsu == "p"){
+            pulo--;
+            console.log("Voce Pulou!");
+            n2 = Math.floor(Math.random() * 10);
+            console.log("Essa pergunta vale "+premio[n]+" reais");
+            var respUsu = user.question("Pergunta: \n "+perguntas[n][n2]+"\n"+alterna[n][n2]+" \n P) Pulos: "+pulo);
+        }else if(pulo <= 0 && respUsu == "p"){
+            console.log("Voce não tem mais pulos, responda a pergunta ou perca tudo!");
+        }
          if(respUsu != respCerta[n][n2]){
         console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n");
              break;
