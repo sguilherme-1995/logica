@@ -88,21 +88,9 @@ while(play = true){
             }
    
         
-        // if(respUsu != respCerta[n]){
-        // console.log("Resposta errada!\n Infelizmente voce perdeu tudo!\n Deseja jogar novamente?");}
-        //    if(ganhou = 2){desistir == 1
-        // } if(desistir == 1){
-        //     play = false;
-            
         
-        
-                // if(respUsu == respCerta[n]){console.log("Deseja jogar novamente?\n")}
-                // var jogarDenovo = user.questionInt("1 - Sim\n 2 - Nao\n");
-                //     if(jogarDenovo == 2){
-                //         play = false;
-                //         }
-                                  
         n = 0
+        pulo = 3
                     }
 console.log("Jogo encerrado! \n Obrigado por jogar! ");
 
