@@ -25,6 +25,8 @@ while(mostrar == false){
             mostrar = false
         }else{
             console.log("Resposta invalida!");
+            mostrar = false
+            var pergunta = user.questionInt("Deseja mostrar os carros (1) ou cadastrar um carro novo (2)?\n")
         }
 }
 console.log(listaCarros)
