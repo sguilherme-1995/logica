@@ -1,0 +1,119 @@
+>>HTML<<
+Quais são as linguagens que um browser interpreta ao abrir uma página web?
+    R:HTML, CSS, JavaScript.
+
+O que são e para que servem meta tags?
+    R:Tags para os "Robos" lerem! Não fica visivel na pagina, apenas para o SEO ler.
+
+Quais são as tags mínimas que costumamos encontrar em um documento HTML? Para que servem?
+    R:
+
+Quais tags HTML vocês conhecem?
+    R:
+
+Como eu aplico um estilo no meu site HTML?
+    R:<tag style="css">
+
+Como eu importo um script CSS para a minha página HTML?
+    R:<link rel = "styleseet" type="text/css" href="nomedoarquivo.css">
+
+Como eu importo um script javascript para minha página HTML?
+    R:
+
+Como eu adiciono uma imagem no meu site? Como eu adiciono um link no meu site?
+    R:
+
+O que é um atributo de uma tag html?
+
+
+
+>>CSS<<
+Qual é a estrutura da linguagem CSS?
+    R:
+
+Como eu faço para mudar a cor de todos os meus h1 para azul?
+    R:
+
+E se eu quiser que só alguns dos h1 fique azul?
+    R:
+
+Quais são as maneiras com as quais podemos representar cores em CSS?
+    R:
+
+O que são frameworks CSS?
+    R:
+
+Quais são 3 frameworks CSS famosos utilizados atualmente?
+    R:
+
+No exemplo que fizemos do bootstrap, como eu posso alterar as cores dos textos e fundo?
+    R:
+
+Como faço para "inspecionar elemento" no google chrome?
+    R:
+
+
+SEO + Analytics
+O que é SEO?
+Qual é a diferença de tráfego pago para tráfego orgânico?
+Para que serve o google analytics?
+Como eu faço para colocar o google analytics no meu site?
+
+Redes sociais
+O que é o Github?
+O que é o Stackoverflow?
+O que é o MeetUp?
+Quem foi em algum MeetUp no mês de fevereiro?
+Como fizemos para hospedar nossa página publicamente no github?
+
+GIT 
+O que é o GIT?
+Como eu faço para copiar um repositório que está disponível no github?
+Como eu faço para deixar minha cópia local do trabalho salva no github?
+O que é uma mensagem de commit?
+Qual é a diferença de commit para push?
+Como eu crio um novo repositório do zero na minha máquina?
+
+Lógica de programação e Javascript:
+Logica:
+O que é uma linguagem de programação?
+Como o código é executado?
+Como posso bifurcar o meu código?
+Como posso executar mais de uma vez uma parte do meu código?
+O que é uma variável?
+Como eu crio uma nova variável?
+Como eu posso assinalar um novo valor a uma variável?
+O que são tipos primitovos de variáveis em javascript?
+Como posso checar o tipo de uma variável?
+O que é uma variável booleana?
+Como eu posso comparar duas variáveis?
+Qual é a diferença entre comparar com === ou com ==?
+O que é o operador negação?
+O que é um contador?
+O que significa "atualizar o contador"?
+Para que serve o comando break?
+Qual é a diferença entre um While e um For?
+Para que serve cada parte de um For loop?
+Como eu faço para saber se um número é par?
+Como eu faço para saber se um número é divisível por outro?
+Como eu faço para saber se um número é PRIMO?
+Como eu faço para obter um input de um usuário no terminal?
+Como eu faço para importar um módulo em javascript?
+O que é JSON?
+Como eu faço para salvar um objeto num arquivo texto no meu computador no formato JSON?
+Como eu faço para ler um JSON armazenado na minha máquina?
+O que é um array?
+Como eu acesso individualmente os valores da array?
+Como eu posso somar todos os valores numa array de números?
+O que é um objeto?
+Como eu posso acessar a propriedade de um objeto?
+O que é e para que serve uma função?
+O que é um argumento de uma função?
+Para que serve o retorno de uma função?
+Como eu posso checar se os caracteres de uma string são maiúsculos ou minúsculos?
+
+Erros comuns
+O que está errado na expressão abaixo?
+if(name = "Rafael"){
+    console.log('O nome dele é Rafael')
+}
