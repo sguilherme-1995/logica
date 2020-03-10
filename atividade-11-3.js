@@ -1,4 +1,8 @@
 var user = require('readline-sync');
 var calc = require('canivetesuiconode');
-var num = user.question("Qual o numero?\n");
-console.log(calc.NumeroPar(num));
+var num = user.questionInt("Qual o numero?\n");
+if(calc.NumeroPar(num) == true){
+    console.log("Seu numero e par!");
+}else{
+    console.log("Seu numero e impar!");
+}
