@@ -24,6 +24,8 @@ if(alunos[0].idade > alunos[1].idade && alunos[0].idade > alunos[2].idade){
     console.log(`Os alunos mais velhos sao ${alunos[2].nome} e o ${alunos[1].nome} com ${alunos[1].idade} anos`);
 }else if(alunos[0].idade == alunos[2].idade){
     console.log(`Os alunos mais velhos sao ${alunos[0].nome} e o ${alunos[2].nome} com ${alunos[0].idade} anos`);
+}else{
+    console.log(`Os tres alunos ${alunos[0].nome}, ${alunos[1].nome} e o ${alunos[2].nome} tem a mesma idade de ${alunos[0].idade} anos!`);
 }
 //loucura mas deu bom!
 
