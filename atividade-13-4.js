@@ -6,7 +6,7 @@ var x = 0;
 var i = 0
 var final = carros.map((carroEUR)=>{
     if(carroEUR.Origin == "Europe"){
-        var media = carros.Horsepower;
+        var media = carroEUR.Horsepower;
         var mediaTotal = mediaTotal + media
         
         x++;

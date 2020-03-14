@@ -9,6 +9,8 @@ axios.get(`https://api.postmon.com.br/v1/cep/${cep}`)
         console.log(resposta.data.cidade)
         console.log(resposta.data.estado_info)
         console.log(resposta.data.estado_info.codigo_ibge)
+        console.log(resposta.data.rua)
+
 
 
     })
