@@ -59,7 +59,7 @@ function municipioCerto(){
             }else if(ent === 2){
                 menu()
             }else{
-                console.log("Dados errados")
+                console.log("Dados errados reinicie o processo")
                 menu()
             }
 
@@ -72,8 +72,8 @@ axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
     .then((result) => {
         var resultData = result.data
         resultData.filter((nome) => {
-                console.log(nome.nome)
-                console.log(nome.id)
+                console.log("Nome: "+nome.nome)
+                console.log("Codigo IBGE: "+nome.id)
         })
         menu()
     }).catch((erro) => {
