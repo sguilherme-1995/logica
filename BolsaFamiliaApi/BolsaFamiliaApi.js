@@ -5,6 +5,7 @@ function menu(){
     console.log("------------------MENU------------------")
     console.log("Para saber o codigo IBGE de todos os municipios digite 1")
     console.log("Para saber as informacoes de um municipio digite 2")
+    console.log("Para saber o codigo IBGE do seu municipio digite 3")
     var entra = user.questionInt(">> ")
     if(entra === 1){
         municipios()
@@ -16,10 +17,55 @@ function menu(){
         var mesCheck = user.question("Digite o mes (MM) \n>> ")
         dadosBolsa(anoCheck,mesCheck,idMuni)
         
+    }else if(entra === 3){
+        municipioCerto()
     }else{
         console.log('Dados errados\nInsira novamente')
         menu()
     }
+}
+function dadosMuniCerto(parmUni){
+    var mesUni = user.question("Digite o mes (MM)\n")
+    var anoUni = user.question("Digite o ano (AAAA)\n")
+    axios.get(`http://www.transparencia.gov.br/api-de-dados/bolsa-familia-por-municipio?mesAno=${anoUni}${mesUni}&codigoIbge=${parmUni}`)
+    .then((results) => {
+        var resultData = results.data
+        resultData.filter((resposta) => {
+            console.log("No estado de "+resposta.municipio.uf.nome)
+            console.log("A quantidade de beneficiarios em " + resposta.municipio.nomeIBGE + " e de "+ resposta.quantidadeBeneficiados)
+            console.log("O valor total e: R$ "+resposta.valor)
+            console.log("Cada beneficiario recebe em media: "+(resposta.valor/resposta.quantidadeBeneficiados))
+            menu()
+        })
+
+        }).catch((erro) => {
+            console.log("Erro ao pegar dados da API " + erro)
+        })
+}
+function municipioCerto(){
+    console.log("---------------Digite o nome do municipio para saber o codigo IBGE---------------")
+    var muni = user.question("Qual o nome do municipio?\n")
+    axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${muni}`)
+    .then((resultMuni) => {
+            var paraMuniCerto = resultMuni.data.id
+            console.log("O codigo IBGE de "+resultMuni.data.nome+" e:")
+            console.log(resultMuni.data.id)
+            console.log("--------------------------")
+            console.log("Digite 1 para saber os dados do bolsa familia sobre seu municipio")
+            console.log("Digite 2 para voltar para o menu")
+            var ent = user.questionInt(">>")
+            if(ent === 1){
+                dadosMuniCerto(paraMuniCerto)
+            }else if(ent === 2){
+                menu()
+            }else{
+                console.log("Dados errados")
+                menu()
+            }
+
+    }).catch((erro) => {
+        console.log("Erro ao pegar dados da API " + erro)
+    })
 }
 function municipios(){
 axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
@@ -42,6 +88,7 @@ function dadosBolsa(parm1,parm2,parm3){
             console.log("No estado de "+resposta.municipio.uf.nome)
             console.log("A quantidade de beneficiarios em " + resposta.municipio.nomeIBGE + " e de "+ resposta.quantidadeBeneficiados)
             console.log("O valor total e: R$ "+resposta.valor)
+            console.log("Cada beneficiario recebe em media: "+(resposta.valor/resposta.quantidadeBeneficiados))
             menu()
         })
 
