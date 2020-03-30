@@ -30,6 +30,8 @@ axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
                 console.log(nome.id)
         })
         menu()
+    }).catch((erro) => {
+        console.log("Erro ao pegar dados da API " + erro)
     })
 }
 function dadosBolsa(parm1,parm2,parm3){
@@ -43,6 +45,8 @@ function dadosBolsa(parm1,parm2,parm3){
             menu()
         })
 
+        }).catch((erro) => {
+            console.log("Erro ao pegar dados da API " + erro)
         })
 }
 // municipios()
