@@ -81,8 +81,9 @@ function municipioCerto(){
 function porcentBolsa(parame1,parame2){
     axios.get(`https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2019/variaveis/9324?localidades=N6[${parame2}]`)
         .then((res) => {
-            var população = res.data[0].serie
+            var população = res.data.serie;
             var resultFinal = (população)/(parame1)*100
+            console.log(população)
             console.log(resultFinal+"% dos habitantes do municipios recebem o beneficio")
         })
 }
