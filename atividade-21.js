@@ -15,7 +15,7 @@ console.log("Digite 6 para sair do programa")
 var wish = user.questionInt(">> ")
     if(wish === 1){
     //cadastra
-    var nome = user.question("Qual o nome do carro?")
+    var nome = user.question("Qual o nome do carro?").toLowerCase()
     var valorCarro = user.questionInt("Qual o valor do carro?")
     var carro = (nome, valorCarro) => ({ nome, valorCarro })
     var novoCarro = carro(nome,valorCarro)
@@ -23,13 +23,14 @@ var wish = user.questionInt(">> ")
     }else if(wish === 2){
     //mostra tudo
     }else if(wish === 3){
+        mostrarTudo()
     //filtra pelo maior valor
     }else if(wish === 4){
     //filtra pelo menor valor
     }else if(wish === 5){
     //filtra por valor exato
     }else if(wish === 6){
-        console.log("Volte sempre!")
+        console.log("Programa encerrado!")
         process.exit()
     }else{
         console.log("Dados incorretos")
@@ -49,5 +50,11 @@ function cadastraCarro(carro){
     })
     console.log("Carro cadastrado")
     menu()
+}
+function mostrarTudo(){
+    db.ref(referenciaCarros).orderByChild('Valor')
+        .on('child_added', snapshot=>{
+            console.log(snapshot.val())
+        })
 }
 menu()
