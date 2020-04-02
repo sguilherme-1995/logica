@@ -1,5 +1,6 @@
 var axios = require('axios');
 var user = require('readline-sync');
+var sS = require('string-similarity');
 
 function menu(){
     console.log("------------------MENU------------------")
@@ -51,12 +52,26 @@ function dadosMuniCerto(parmUni){
             console.log("Erro ao pegar dados da API " + erro)
         })
 }
-
+function compararStrings(para){
+    axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${para}`)
+    .then((resultMuni) => {
+        var arrayCompara = resultMuni.data
+        
+        // arrayCompara.map((resu) => {
+        //     sS.findBestMatch(para, arrayCompara)
+             
+        // }) 
+        
+        var num = sS.compareTwoStrings(para,resultMuni.data.nome)
+        console.log(num)
+    })
+}
 function municipioCerto(){
     console.log("---------------Digite o nome do municipio para saber o codigo IBGE---------------")
     var muni = user.question("Qual o nome do municipio?\n")
     axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${muni}`)
     .then((resultMuni) => {
+            console.log(compararStrings(muni))
             var paraMuniCerto = resultMuni.data.id
             console.log("O codigo IBGE de "+resultMuni.data.nome+" e:")
             console.log(paraMuniCerto)

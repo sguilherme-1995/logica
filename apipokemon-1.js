@@ -34,7 +34,6 @@ function cadastraPokemon(param){
     var id = param
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(resultado =>{
-    var arrayTipo = resultado.data.types
           db.push({
               treinador: treinador,
               id: id,
@@ -45,8 +44,7 @@ function cadastraPokemon(param){
           console.log('Seu Pokemon foi adicionado ao pokedex!\n')
           var wish2 = user.questionInt("Deseja saber o dano causado pelo seu novo pokemom?\n1 - Sim\n2 - Nao\n>> ")
           if(wish2 === 1){
-              var respos = arrayTipo.type.name
-            detalhesTipo(respos)
+            detalhesTipo()
           }else if(wish2 === 2){
             menu()
           }else{
@@ -60,17 +58,45 @@ function cadastraPokemon(param){
     })
   }
 
-  function detalhesTipo(parametro){
-    console.log("detalhesTipo -> parametro", parametro)
-    // var id = user.question('digite o id ou o nome do Pokemon: ')
-    axios.get(`https://pokeapi.co/api/v2/type/${parametro}/`)
+  function detalhesTipo(){
+    var nomeHabi = user.question('Digite o nome da abilidade que deseja saber dos Pokemons: ')
+    axios.get(`https://pokeapi.co/api/v2/type/${nomeHabi}`)
         .then(resultado =>{
-            var arrayDano = resultado.data.damage_relations.no_damage_to
-            console.log(arrayDano)
-            arrayDano.map((result) => {
-            console.log(result.name)
-            console.log("------------------")
+            var arrayDamage1 = resultado.data.damage_relations.double_damage_to
+            var arrayDamage2 = resultado.data.damage_relations.no_damage_to
+            var arrayDamage3 = resultado.data.damage_relations.half_damage_to
+            console.log("--------------------")
+            console.log("'No damage to' nos seguientes Pokemons")
+            arrayDamage2.map((resp) => {
+                console.log("Nome:")
+                console.log(">> "+resp.name)
+                console.log("URL:")
+                console.log(">> "+resp.url)
             })
+            console.log("--------------------")
+            console.log("'Double damage to' nos seguientes Pokemons")
+            arrayDamage1.map((resp) => {
+                console.log("Nome:")
+                console.log(">> "+resp.name)
+                console.log("URL:")
+                console.log(">> "+resp.url)
+            })
+            console.log("--------------------")
+            console.log("'Half damage to' nos seguientes Pokemons")
+            arrayDamage3.map((resp) => {
+                console.log("Nome:")
+                console.log(">> "+resp.name)
+                console.log("URL:")
+                console.log(">> "+resp.url)
+            })
+            console.log("Outros pokemons da tipo '"+resultado.data.name+"'")
+            var arrayPoke = resultado.data.pokemon
+            arrayPoke.map((resul) => {
+                console.log("Nome: ")
+                console.log(resul.pokemon.name)
+                console.log("----------------------")
+            })
+            
             menu()
         })
     .catch(erro =>{
@@ -131,7 +157,7 @@ function pokemons(nome) {
     })
 }
 function menu(){
-var wish = user.questionInt("Voce deseja:\n1 - Ver todos os Pokemons?\n2 - Inserir um Pokemom?\n3 - Descobrir o tipo do pokemom\n4 - Mostrar a sua pokedex")
+var wish = user.questionInt("Voce deseja:\n1 - Ver todos os Pokemons?\n2 - Inserir um Pokemom?\n3 - Descobrir o tipo do pokemom\n4 - Mostrar a sua pokedex\n5 - Mostrar dados de dano de habilidade especifica\n")
 if(wish == 1){
 axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=964')
     .then((nome) => {
@@ -150,6 +176,11 @@ var pokemon = user.question("Qual o nome ou o id do pokemon?\n>>").toLowerCase()
     pokemonsDoMesmoTipo()
 }else if(wish === 4){
     mostraPokedex()
+}else if(wish === 5){
+    detalhesTipo()
+}else{
+    console.log("Dados incorretos")
+    menu()
 }
 }
 menu()
