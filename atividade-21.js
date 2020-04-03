@@ -53,6 +53,7 @@ var wish = user.questionInt(">> ")
     }else{
         console.clear()
         console.log("Dados incorretos")
+        console.log("---------------Digite Novamente---------------\n ")
         menu()
     }
 }
