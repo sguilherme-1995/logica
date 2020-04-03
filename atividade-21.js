@@ -21,8 +21,8 @@ var wish = user.questionInt(">> ")
     //cadastra
     console.clear()
     console.log("-----------Cadastre um carro-----------")
-    var nome = user.question("Qual o nome do carro?").toLowerCase()
-    var valorCarro = user.questionInt("Qual o valor do carro?")
+    var nome = user.question("Qual o nome do carro?\n>> ").toLowerCase()
+    var valorCarro = user.questionInt("Qual o valor do carro?\n>> ")
     var carro = (nome, valorCarro) => ({ nome, valorCarro })
     var novoCarro = carro(nome,valorCarro)
     cadastraCarro(novoCarro)
@@ -76,21 +76,21 @@ function mostrarTudo(){
         
 }
 function maiorProMenor(){
-    var ent = user.questionFloat("A partir de qual valor?")
+    var ent = user.questionFloat("A partir de qual valor?\n>> ")
     db.ref(referenciaCarros).orderByChild('Valor').startAt(ent)
         .on('child_added', snapshot => {
             console.log(snapshot.val())
         },menu)
 }
 function menorProMaior(){
-    var ent = user.questionFloat("A partir de qual valor?")
+    var ent = user.questionFloat("A partir de qual valor?\n>> ")
     db.ref(referenciaCarros).orderByChild('Valor').endAt(ent)
         .on('child_added', snapshot => {
             console.log(snapshot.val())
         },menu)
 }
 function valorExato(){
-    var ent = user.questionFloat("A partir de qual valor?")
+    var ent = user.questionFloat("A partir de qual valor?\n>> ")
     db.ref(referenciaCarros).orderByChild('Valor').equalTo(ent)
         .on('child_added', snapshot => {
             console.log(snapshot.val())
