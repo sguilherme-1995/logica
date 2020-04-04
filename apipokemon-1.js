@@ -156,8 +156,34 @@ function pokemons(nome) {
         console.log("Erro ao pegar p Pokemon" + erro)
     })
 }
+
+function descriPoke(){
+    console.log("-----------------------------Descricao da Habilidade-----------------------------")
+    var nome = user.question("Digite o nome ou o id do pokemon que deseja saber a descricao: \n>>")
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${nome}`)
+    .then((desc)=>{
+        var arrayDesc = desc.data.abilities
+        arrayDesc.map((ent) => {
+            var urlDesc = ent.ability.url
+            axios.get(urlDesc)
+                .then((descUrl) => {
+                    var arrayDesc2 = descUrl.data.effect_entries
+                    arrayDesc2.map((entr)=>{
+                        console.log("--------------------")
+                        console.log("Nome da Habilidade")
+                        console.log(">> "+ent.ability.name)
+                        console.log("Descricao da Habilidade")
+                        console.log(">> "+entr.effect)
+                    })
+                
+                })
+            
+        })
+    })
+}
+
 function menu(){
-var wish = user.questionInt("Voce deseja:\n1 - Ver todos os Pokemons?\n2 - Inserir um Pokemom?\n3 - Descobrir o tipo do pokemom\n4 - Mostrar a sua pokedex\n5 - Mostrar dados de dano de habilidade especifica\n")
+var wish = user.questionInt("Voce deseja:\n1 - Ver todos os Pokemons?\n2 - Inserir um Pokemom?\n3 - Descobrir o tipo do pokemom\n4 - Mostrar a sua pokedex\n5 - Mostrar dados de dano de habilidade especifica\n6 - Mostrar discricao da habilidade do pokemon\n>> ")
 if(wish == 1){
 axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=964')
     .then((nome) => {
@@ -178,6 +204,8 @@ var pokemon = user.question("Qual o nome ou o id do pokemon?\n>>").toLowerCase()
     mostraPokedex()
 }else if(wish === 5){
     detalhesTipo()
+}else if(wish === 6){
+    descriPoke()
 }else{
     console.log("Dados incorretos")
     menu()
