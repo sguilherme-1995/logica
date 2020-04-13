@@ -49,8 +49,10 @@ function mostraPokedex(){
 
 }
 
+
 //Aqui é a função que mostra os pokemons com o mesmo tipo, tive problemas pra puxar dados de outra api para rodar nessa, por 
 // isso deve se entrar com os dados do tipo
+
 function pokemonsDoMesmoTipo(){
     var id = user.question('Digite o id ou nome do seu Pokemon: ')
     axios.get(`https://pokeapi.co/api/v2/type/${id}`)
@@ -70,7 +72,9 @@ function pokemonsDoMesmoTipo(){
     })
 }
 
+
 //Aqui é a função que faz o cadastro do pokemon no banco de dados do firebase, não sei se é possivel uma pessoa sem o meu login ver esses dados
+
 function cadastraPokemon(param){
 var pokemomRef = poke => db.ref(`Pokedéx/${nome}/${poke}`)
     var nome = user.question('Digite seu Nome\n>>  ')
@@ -105,8 +109,10 @@ var pokemomRef = poke => db.ref(`Pokedéx/${nome}/${poke}`)
     })
   }
 
+
 //Aqui é a função do DAMAGE, os tres dados vem dentro de um array, e eu estou rodando dentro de um .map
 // e essa função só é acessada apos o cadastro do pokemon no banco de dados
+
 function detalhesTipo(parame){
     axios.get(`https://pokeapi.co/api/v2/type/${parame}`)
         .then(resultado =>{
@@ -148,8 +154,10 @@ function detalhesTipo(parame){
     })
 }
 
+
 //Aqui é a função que eu fiz antes de receber a atividade, ao rodar essa função todos os pokemons existentes na api aparecem com 
 //habilidades e até os movimentos
+
 function pokemons(nome) {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${nome}`)
     .then((nome)=>{
@@ -202,7 +210,9 @@ function pokemons(nome) {
     })
 }
 
+
 //Aqui é a função que mostra a descrição da habilidade do pokemon desejado, baseado no id ou no nome do pokemon
+
 function descriPoke(){
     console.log("-----------------------------Descricao da Habilidade-----------------------------")
     var nome = user.question("Digite o nome ou o id do pokemon que deseja saber a descricao: \n>>")
@@ -229,7 +239,9 @@ function descriPoke(){
     
 }
 
+
 //Essa é a função do menu onde a aplicação se baseia
+
 function menu(){
 var wish = user.questionInt("Voce deseja:\n1 - Ver todos os Pokemons?\n2 - Inserir um Pokemom?\n3 - Descobrir o tipo de um pokemom\n4 - Mostrar a sua pokedex\n5 - Mostrar dados de dano de habilidade especifica\n6 - Mostrar discricao da habilidade do pokemon\n>> ")
 if(wish == 1){
